@@ -6,7 +6,7 @@
 [![Greenkeeper Status](https://badges.greenkeeper.io/CentralPing/http-redirect.svg)](https://greenkeeper.io/)
 [![Known Vulnerabilities](https://snyk.io/test/github/centralping/http-redirect/badge.svg)](https://snyk.io/test/github/centralping/http-redirect)
 
-An HTTP request handler for node [`http.Server`](https://nodejs.org/api/http.html#http_class_http_server) style servers. It automatically sets the correct status code and headers for a response. Function invoctioners will still need to end the request manually.
+An HTTP request handler for node based [`http.Server`](https://nodejs.org/api/http.html#http_class_http_server) style servers. It automatically sets the correct status code and headers for a redirect response. Function invoctioners will still need to end the request manually.
 
 ## Notes
 
@@ -19,11 +19,11 @@ An HTTP request handler for node [`http.Server`](https://nodejs.org/api/http.htm
 
 ## API Reference
 
-<a name="module_httpRedirect..redirect
-Configures a request handler for `http.Server` style servers."></a>
+<a name="module_httpRedirect..redirect"></a>
 
-### httpRedirect~redirect
-Configures a request handler for `http.Server` style servers. ⇒ <code>function</code>
+### httpRedirect~redirect ⇒ <code>function</code>
+Configures a request handler for `http.Server` style servers.
+
 **Kind**: inner property of [<code>httpRedirect</code>](#module_httpRedirect)  
 **Returns**: <code>function</code> - - `http.Server` style request handler  
 
@@ -38,7 +38,7 @@ Configures a request handler for `http.Server` style servers. ⇒ <code>function
 
 ## Examples
 
-### Procedural
+### Simple
 
 ```js
 const redirect = require('@centralping/http-redirect');
@@ -49,9 +49,14 @@ const server = someServerCreator();
 
 // Redirect all the things
 server.route('*', (req, res) => {
+  // Do something interesting perhaps?
+  // ...
+
+  // Redirect this request
   redirector(req, res);
 
   // Important!!
+  // End the response to send it on its merry way
   res.end();
 });
 ```

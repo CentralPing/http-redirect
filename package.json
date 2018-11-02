@@ -47,7 +47,6 @@
     "generate-changelog": "JasonCust/generate-changelog.git",
     "jest": "^23.6.0",
     "jsdoc-to-markdown": "^4.0.1",
-    "micro": "^9.3.3",
     "request-promise-native": "^1.0.5",
     "test-listen": "^1.1.0"
   },
